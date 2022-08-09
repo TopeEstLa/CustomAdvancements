@@ -122,6 +122,8 @@ public enum Lang {
 	ADVANCEMENT_TYPE_RAIDFINISH("advancements.type.raidfinish.unit", "raids finished"),
 	ADVANCEMENT_TYPE_MONEY_UNIT("advancements.type.money.unit","money earned"),
 	ADVANCEMENT_TYPE_JOBS_UNIT("advancements.type.jobs.unit","level jobs earned"),
+	ADVANCEMENT_TYPE_YOU_VISIT_UNIT("advancements.type.you.visit.unit","Visit other player island"),
+	ADVANCEMENT_TYPE_ISLAND_VISITED_UNIT("advancements.type.island.visited.unit","Your island visited"),
 
 	COMMAND_GRANTIMPOSSIBLE_DESC("commands.grantimpossible.description", "Grant progression to a player for an impossible advancement type"),
 	COMMAND_GRANTIMPOSSIBLE_USAGE("commands.grantimpossible.description", "/ca grantimpossible <player> <amount> <advancement_path>"),

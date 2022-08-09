@@ -1,8 +1,6 @@
 package me.tippie.customadvancements.advancement.types;
 
 import com.gamingmesh.jobs.api.JobsLevelUpEvent;
-import lombok.val;
-import me.tippie.customadvancements.advancement.AdvancementManager;
 import me.tippie.customadvancements.util.Lang;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

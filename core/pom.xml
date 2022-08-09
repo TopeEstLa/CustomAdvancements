@@ -80,6 +80,10 @@
             <id>sk89q-repo</id>
             <url>https://maven.enginehub.org/repo/</url>
         </repository>
+        <repository>
+            <id>codemc-releases</id>
+            <url>https://repo.codemc.io/repository/maven-releases</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -117,6 +121,17 @@
             <groupId>com.github.Zrips</groupId>
             <artifactId>Jobs</artifactId>
             <version>LATEST</version> <!-- Change the LATEST to the current version of jobs -->
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>world.bentobox</groupId>
+            <artifactId>visit</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>world.bentobox</groupId>
+            <artifactId>bentobox</artifactId>
+            <version>1.20.1</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

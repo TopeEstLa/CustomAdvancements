@@ -121,6 +121,8 @@ public enum Lang {
 	ADVANCEMENT_TYPE_HARVEST_UNIT("advancements.type.harvest.unit", "items harvested"),
 	ADVANCEMENT_TYPE_RAIDFINISH("advancements.type.raidfinish.unit", "raids finished"),
 	ADVANCEMENT_TYPE_MONEY_UNIT("advancements.type.money.unit","money earned"),
+	ADVANCEMENT_TYPE_JOBS_UNIT("advancements.type.jobs.unit","level jobs earned"),
+
 	COMMAND_GRANTIMPOSSIBLE_DESC("commands.grantimpossible.description", "Grant progression to a player for an impossible advancement type"),
 	COMMAND_GRANTIMPOSSIBLE_USAGE("commands.grantimpossible.description", "/ca grantimpossible <player> <amount> <advancement_path>"),
 	COMMAND_GRANTIMPOSSIBLE_NOT_A_NUMBER("commands.grantimpossible.not-a-number","&cThe given progress is not a number"),

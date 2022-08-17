@@ -227,14 +227,6 @@ jobs:
             ~/.m2/repository/org/spigotmc/minecraft-server/
           key: ${{ runner.os }}-spigot-1.19-all
           restore-keys: ${{ runner.os }}-spigot-1.19-all
-    - uses: s4u/maven-settings-action@v2.3.0
-      with:
-          servers: |
-            [{
-                "id": "tippie-repo",
-                "username": "${{ secrets.TIPPIE_REPO_USERNAME }}",
-                "password": "${{ secrets.TIPPIE_REPO_PASSWORD }}"
-            }]
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Upload Artifacts

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.val;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.tippie.customadvancements.CustomAdvancements;
+import me.tippie.customadvancements.advancement.events.CustomAdvancementDoneEvent;
 import me.tippie.customadvancements.advancement.requirement.AdvancementRequirement;
 import me.tippie.customadvancements.advancement.reward.AdvancementReward;
 import me.tippie.customadvancements.advancement.types.AdvancementType;
@@ -141,6 +142,8 @@ public class CAdvancement {
 	public void complete(final UUID uuid) {
 		val player = Bukkit.getPlayer(uuid);
 		assert player != null;
+		CustomAdvancementDoneEvent event = new CustomAdvancementDoneEvent(player, this);
+		Bukkit.getPluginManager().callEvent(event);
 		for (final AdvancementReward reward : rewards) {
 			reward.onComplete(player);
 		}

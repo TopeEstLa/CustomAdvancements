@@ -7,6 +7,7 @@ import me.tippie.customadvancements.InternalsProvider;
 import me.tippie.customadvancements.advancement.AdvancementTree;
 import me.tippie.customadvancements.advancement.CAdvancement;
 import me.tippie.customadvancements.advancement.InvalidAdvancementException;
+import me.tippie.customadvancements.advancement.events.CustomAdvancementDoneEvent;
 import me.tippie.customadvancements.advancement.requirement.AdvancementRequirement;
 import me.tippie.customadvancements.advancement.reward.AdvancementReward;
 import me.tippie.customadvancements.player.datafile.AdvancementProgress;
@@ -173,6 +174,12 @@ public class CAPlayer {
 		val progress = caProgress.getProgress();
 		val maxProgress = CustomAdvancements.getAdvancementManager().getAdvancement(path).getMaxProgress();
 		if (maxProgress <= progress) {
+			CustomAdvancementDoneEvent event = new CustomAdvancementDoneEvent(Bukkit.getPlayer(this.uuid), CustomAdvancements.getAdvancementManager().getAdvancement(path));
+			Bukkit.getPluginManager().callEvent(event);
+
+			if (event.isCancelled())
+				return;
+
 			caProgress.setCompleted(true);
 			caProgress.setActive(false);
 			updateMinecraftGui(path);

@@ -142,8 +142,7 @@ public class CAdvancement {
 	public void complete(final UUID uuid) {
 		val player = Bukkit.getPlayer(uuid);
 		assert player != null;
-		CustomAdvancementDoneEvent event = new CustomAdvancementDoneEvent(player, this);
-		Bukkit.getPluginManager().callEvent(event);
+
 		for (final AdvancementReward reward : rewards) {
 			reward.onComplete(player);
 		}

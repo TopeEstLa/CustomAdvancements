@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.geysermc.cumulus.ModalForm;
 import org.geysermc.cumulus.SimpleForm;
 import org.geysermc.cumulus.response.ModalFormResponse;
+import org.geysermc.cumulus.response.SimpleFormResponse;
 import org.geysermc.floodgate.api.FloodgateApi;
 import org.jetbrains.annotations.NotNull;
 
@@ -35,7 +36,7 @@ public class BedrockAdvancementCommand implements CommandExecutor {
                 }
 
                 simpleForm.responseHandler((form, responseData) -> {
-                    ModalFormResponse response = (ModalFormResponse) form.parseResponse(responseData);
+                    SimpleFormResponse response = form.parseResponse(responseData);
 
                     if (!response.isCorrect()) {
                         return;
@@ -72,7 +73,7 @@ public class BedrockAdvancementCommand implements CommandExecutor {
         }
 
         simpleForm.responseHandler((form, responseData) -> {
-            ModalFormResponse response = (ModalFormResponse) form.parseResponse(responseData);
+            SimpleFormResponse response =  form.parseResponse(responseData);
 
             if (!response.isCorrect()) {
                 return;

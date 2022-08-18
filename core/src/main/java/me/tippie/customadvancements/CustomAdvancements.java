@@ -96,7 +96,10 @@ public final class CustomAdvancements extends JavaPlugin {
 		final int pluginId = 10941;
 		metrics = new Metrics(this, pluginId);
 
-		this.getCommand("bedrockadvancements").setExecutor(new BedrockAdvancementCommand(this));
+		if (Bukkit.getPluginManager().isPluginEnabled("floodgate")) {
+			this.getCommand("bedrockadvancements").setExecutor(new BedrockAdvancementCommand(this));
+		}
+
 		this.getCommand("customadvancements").setExecutor(commandListener);
 		this.getCommand("customadvancements").setTabCompleter(commandListener);
 		getServer().getPluginManager().registerEvents(new CAPlayerListener(), this);

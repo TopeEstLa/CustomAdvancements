@@ -32,7 +32,7 @@ public class BedrockAdvancementCommand implements CommandExecutor {
                         .title("Bedrock Advancements");
 
                 for (AdvancementTree tree : CustomAdvancements.getAdvancementManager().getAdvancementTrees()) {
-                    simpleForm.button(tree.getLabel());
+                    simpleForm.button(tree.getLabel().replace("_", " "));
                 }
 
                 simpleForm.responseHandler((form, responseData) -> {
@@ -42,10 +42,7 @@ public class BedrockAdvancementCommand implements CommandExecutor {
                         return;
                     }
 
-                    System.out.println(response.getClickedButtonId());
-
                     AdvancementTree tree = CustomAdvancements.getAdvancementManager().getAdvancementTrees().get(response.getClickedButtonId());
-                    player.sendMessage("You have unlocked the " + tree.getLabel() + " advancement!");
                     player.closeInventory();
                     this.openAdvancementTree(player, tree);
                 });
@@ -79,10 +76,7 @@ public class BedrockAdvancementCommand implements CommandExecutor {
                 return;
             }
 
-            System.out.println(response.getClickedButtonId());
-
             CAdvancement advancement = tree.getAdvancements().get(response.getClickedButtonId());
-            player.sendMessage("You have unlocked the " + advancement.getDisplayName() + " advancement!");
             player.closeInventory();
             this.openAdvancementInfo(caPlayer, advancement);
         });
@@ -91,14 +85,19 @@ public class BedrockAdvancementCommand implements CommandExecutor {
     }
 
     private String translateComplete(CAPlayer caPlayer, CAdvancement advancement) {
-        return caPlayer.getAdvancementProgress().get(advancement.getPath()).isCompleted() ? "§a✔" : "§e✘";
+        return caPlayer.getAdvancementProgress().get(advancement.getPath()).isCompleted() ? "§a✔" : "§c✘";
+    }
+
+
+    private String translateCompleteDisplay(CAPlayer caPlayer, CAdvancement advancement) {
+        return caPlayer.getAdvancementProgress().get(advancement.getPath()).isCompleted() ? "§aFini" : "§cEn cour";
     }
 
     private void openAdvancementInfo(CAPlayer caPlayer, CAdvancement advancement) {
         ModalForm modalForm = ModalForm.builder()
                 .title(advancement.getDisplayName())
                 .content("L'achivement " + advancement.getDisplayName() + " est " + this.translateComplete(caPlayer, advancement) + "\n" +
-                        advancement.getDescription() + "\n \n" +
+                        advancement.getDescription().replace("&", "§") + "\n \n §a" +
                         caPlayer.getAdvancementProgress().get(advancement.getPath()).getProgress() + "/" + advancement.getMaxProgress())
                 .button1("Close")
                 .build();

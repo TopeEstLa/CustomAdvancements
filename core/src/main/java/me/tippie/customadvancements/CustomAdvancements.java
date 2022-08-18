@@ -8,6 +8,7 @@ import me.tippie.customadvancements.advancement.reward.types.ConsoleCommand;
 import me.tippie.customadvancements.advancement.reward.types.Message;
 import me.tippie.customadvancements.advancement.types.*;
 import me.tippie.customadvancements.bstats.Metrics;
+import me.tippie.customadvancements.commands.BedrockAdvancementCommand;
 import me.tippie.customadvancements.commands.CommandListener;
 import me.tippie.customadvancements.player.CAPlayerListener;
 import me.tippie.customadvancements.player.CAPlayerManager;
@@ -95,6 +96,7 @@ public final class CustomAdvancements extends JavaPlugin {
 		final int pluginId = 10941;
 		metrics = new Metrics(this, pluginId);
 
+		this.getCommand("bedrockadvancements").setExecutor(new BedrockAdvancementCommand(this));
 		this.getCommand("customadvancements").setExecutor(commandListener);
 		this.getCommand("customadvancements").setTabCompleter(commandListener);
 		getServer().getPluginManager().registerEvents(new CAPlayerListener(), this);

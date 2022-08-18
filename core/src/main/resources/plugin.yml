@@ -6,6 +6,9 @@ author: Tippie
 api-version: 1.13
 softdepend: [ Essentials, PlaceholderAPI, WorldGuard, Jobs ]
 commands:
+  bedrockadvancements:
+    aliases: [ bea ]
+    description: See advancment to bedrock
   customadvancements:
     aliases: [ ca , advancements]
     description: CustomAdvancements base command

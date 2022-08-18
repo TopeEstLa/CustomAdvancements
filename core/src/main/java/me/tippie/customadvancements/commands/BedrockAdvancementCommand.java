@@ -96,8 +96,8 @@ public class BedrockAdvancementCommand implements CommandExecutor {
     private void openAdvancementInfo(CAPlayer caPlayer, CAdvancement advancement) {
         ModalForm modalForm = ModalForm.builder()
                 .title(advancement.getDisplayName())
-                .content("L'achivement " + advancement.getDisplayName() + " est " + this.translateComplete(caPlayer, advancement) + "\n" +
-                        advancement.getDescription().replace("&", "§") + "\n \n §a" +
+                .content("L'achivement " + advancement.getDisplayName() + " est " + this.translateCompleteDisplay(caPlayer, advancement) + "\n" +
+                        advancement.getDescription().replace("&", "§") + "\n \n§a" +
                         caPlayer.getAdvancementProgress().get(advancement.getPath()).getProgress() + "/" + advancement.getMaxProgress())
                 .button1("Close")
                 .build();
